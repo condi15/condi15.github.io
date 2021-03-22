@@ -1,0 +1,46 @@
+<hr>
+<p>title: C,C++相关知识<br>date: 2021-03-22 17:59:24<br>tag: 学习记录</p>
+<hr>
+<h1 id="C-C-程序员要会些什么"><a href="#C-C-程序员要会些什么" class="headerlink" title="C/C++程序员要会些什么"></a>C/C++程序员要会些什么</h1><!-- more -->
+<ol>
+<li>C/C++基本语法</li>
+<li>面向对象编程</li>
+<li>数据结构</li>
+<li>模板库：STL</li>
+<li>界面库：QT、MFC</li>
+<li>数据库：Mysql、Oracle、Redis</li>
+<li>系统内核编程、算法、深度学习<br>{% asset_img 123.PNG This is an test image %}  </li>
+</ol>
+<h1 id="第二节"><a href="#第二节" class="headerlink" title="第二节"></a>第二节</h1><h2 id="C-C-基础知识"><a href="#C-C-基础知识" class="headerlink" title="C/C++基础知识"></a>C/C++基础知识</h2><ol>
+<li>引用和指针的区别  </li>
+</ol>
+<ul>
+<li>相同点  </li>
+</ul>
+<ol>
+<li>都是地址的概念；指针指向一块内存，它的内容是所指内存的地址；<br>引用是某块内存的别名。</li>
+</ol>
+<ul>
+<li>区别  </li>
+</ul>
+<ol>
+<li>指针是一个实体，而引用仅是个别名；</li>
+<li>引用使用时无需解引用（*），指针需要解引用；</li>
+<li>引用只能在定义时被初始化一次，之后不可变；指针可变；引用“从一而终” ^_^</li>
+<li>引用没有 const，指针有 const，const 的指针不可变；</li>
+<li>引用不能为空，指针可以为空；</li>
+<li>“sizeof 引用”得到的是所指向的变量（对象）的大小，而“sizeof 指针”得到的是指针本身（所指向的变量或对象的地址）的大小；typeid（T） == typeid（T&amp;） 恒为真，sizeof（T） == sizeof（T&amp;） 恒为真，但是当引用作为成员时，其占用空间与指针相同（没找到标准的规定）。</li>
+<li>指针和引用的自增（++）运算意义不一样；<br><a href="https://blog.csdn.net/lyd_253261362/article/details/4323691?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.baidujs&dist_request_id=1328680.51290.16164033792429509&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.baidujs">详细介绍=====c＋＋中的引用与指针的区别</a><h2 id="OS四大模块"><a href="#OS四大模块" class="headerlink" title="OS四大模块"></a>OS四大模块</h2><h3 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h3></li>
+<li>进程：一个在内存中运行的应用程序。每个进程都有自己独立的一块内存空间，一个进程可以有多个线程，比如在Windows系统中，一个运行的xx.exe就是一个进程。</li>
+<li>线程：进程中的一个执行任务（控制单元），负责当前进程中程序的执行。一个进程至少有一个线程，一个进程可以运行多个线程，多个线程可共享数据。<br>与进程不同的是同类的多个线程共享进程的堆和方法区资源，但每个线程有自己的程序计数器、虚拟机栈和本地方法栈，所以系统在产生一个线程，或是在各个线程之间作切换工作时，负担要比进程小得多，也正因为如此，线程也被称为轻量级进程。</li>
+<li>进程与线程的区别：线程具有许多传统进程所具有的特征，故又称为轻型进程(Light—Weight Process)或进程元；而把传统的进程称为重型进程(Heavy—Weight Process)，它相当于只有一个线程的任务。在引入了线程的操作系统中，通常一个进程都有若干个线程，至少包含一个线程。  </li>
+</ol>
+<p><strong>根本区别</strong>：进程是操作系统资源分配的基本单位，而线程是处理器任务调度和执行的基本单位。<br><strong>资源开销</strong>：每个进程都有独立的代码和数据空间（程序上下文），程序之间的切换会有较大的开销；线程可以看做轻量级的进程，同一类线程共享代码和数据空间，每个线程都有自己独立的运行栈和程序计数器（PC），线程之间切换的开销小。<br><strong>包含关系</strong>：如果一个进程内有多个线程，则执行过程不是一条线的，而是多条线（线程）<br><strong>共同完成的</strong>：线程是进程的一部分，所以线程也被称为轻权进程或者轻量级进程。<br><strong>内存分配</strong>：同一进程的线程共享本进程的地址空间和资源，而进程之间的地址空间和资源是相互独立的。<br><strong>影响关系</strong>：一个进程崩溃后，在保护模式下不会对其他进程产生影响，但是一个线程崩溃整个进程都死掉。所以多进程要比多线程健壮。<br>执行过程：每个独立的进程有程序运行的入口、顺序执行序列和程序出口。但是线程不能独立执行，必须依存在应用程序中，由应用程序提供多个线程执行控制，两者均可并发执行。<br><a href="https://blog.csdn.net/ThinkWon/article/details/102021274?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522161640464016780274136086%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=161640464016780274136086&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_v2~rank_v29-2-102021274.first_rank_v2_pc_rank_v29&utm_term=%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B%E7%AE%A1%E7%90%86">进程和线程的区别(超详细)</a> </p>
+<h3 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h3><ol>
+<li>内存管理主要包括虚地址、地址变换、内存分配和回收、内存扩充、内存共享和保护等功能。  </li>
+<li>连续分配存储管理方式：连续分配是指为一个用户程序分配连续的内存空间。连续分配有单一连续存储管理和分区式储管理两种方式。</li>
+<li>单一连续存储管理：在这种管理方式中，内存被分为两个区域：系统区和用户区。应用程序装入到用户区，可使用用户区全部空间。其特点是，最简单，适用于单用户、单任务的操作系统。CP／M和 DOS 2．0以下就是采用此种方式。这种方式的最大优点就是易于管理。但也存在着一些问题和不足之处，例如对要求内存空间少的程序，造成内存浪费；程序全部装入，使得很少使用的程序部分也占用—定数量的内存。</li>
+<li>分区式存储管理为：了支持多道程序系统和分时系统，支持多个程序并发执行，引入了分区式存储管理。分区式存储管理是把内存分为一些大小相等或不等的分区，操作系统占用其中一个分区，其余的分区由应用程序使用，每个应用程序占用一个或几个分区。分区式存储管理虽然可以支持并发，但难以进行内存分区的共享。  </li>
+</ol>
+<p><strong>其他具体信息可查看原文</strong>：<a href="https://blog.csdn.net/qq_27736025/article/details/79986276?utm_medium=distribute.pc_relevant.none-task-blog-baidujs_baidulandingword-1&spm=1001.2101.3001.4242">操作系统内存管理</a></p>
+<p>部分内容来源：<a href="https://www.bilibili.com/video/BV1DK4y1J74a?from=search&seid=13814935262025032445">2021鹅厂Linux C++ 后台开发技术及面试题，基础架构岗位学习路线汇总【干货收藏】</a></p>
